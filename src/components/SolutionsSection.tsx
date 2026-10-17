@@ -51,6 +51,14 @@ export const SolutionsSection: React.FC<SolutionsSectionProps> = ({ onSelectSolu
                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                     referrerPolicy="no-referrer"
                     loading="lazy"
+                    onError={(e) => {
+                      // Fallback to static public image if needed
+                      const target = e.currentTarget;
+                      const fallback = `/images/${item.id === 'vitrine-digitais' ? 'vitrine_gastronomia_1792197321874.jpg' : item.id === 'pre-agendamento' ? 'clinica_triagem_1792197322824.jpg' : item.id === 'nfc-qrcode' ? 'nfc_smart_stand_1792197323018.jpg' : 'hero_tapzoom_tech_1792197322398.jpg'}`;
+                      if (target.src !== fallback) {
+                        target.src = fallback;
+                      }
+                    }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/30 to-transparent pointer-events-none" />
 

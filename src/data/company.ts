@@ -1,3 +1,17 @@
+import heroTechImg from '../assets/images/hero_tapzoom_tech_1792197322398.jpg';
+import vitrineGastroImg from '../assets/images/vitrine_gastronomia_1792197321874.jpg';
+import clinicaTriagemImg from '../assets/images/clinica_triagem_1792197322824.jpg';
+import nfcSmartImg from '../assets/images/nfc_smart_stand_1792197323018.jpg';
+import tapzoomLogoImg from '../assets/images/tapzoom_logo.jpg';
+
+export const ASSETS = {
+  hero: heroTechImg,
+  vitrine: vitrineGastroImg,
+  clinica: clinicaTriagemImg,
+  nfc: nfcSmartImg,
+  logo: tapzoomLogoImg,
+};
+
 export interface Solution {
   id: string;
   number: string;
@@ -31,7 +45,8 @@ export const COMPANY_DATA = {
   handle: '@tapzoomm',
   slogan: 'Conecte, facilite e cresça!',
   mission: 'Ajudando negócios a se conectarem com seus clientes.',
-  logoUrl: 'https://i.postimg.cc/6pkWzfxW/Whats-App-Image-2026-10-16-at-21-30-24.jpg',
+  logoUrl: tapzoomLogoImg,
+  fallbackLogoUrl: 'https://i.postimg.cc/6pkWzfxW/Whats-App-Image-2026-10-16-at-21-30-24.jpg',
   valueProposition:
     'Eliminamos os atritos de conversão e o congestionamento no atendimento de negócios locais, transformando o tráfego de redes sociais em fluxos automatizados, vitrines visuais interativas e sistemas de agendamento integrados direto ao WhatsApp.',
   contacts: {
@@ -73,7 +88,7 @@ export const COMPANY_DATA = {
         'Envio estruturado com um clique para o WhatsApp da loja',
         'Zero cobrança de comissões por pedido',
       ],
-      image: '/src/assets/images/vitrine_gastronomia_1792197321874.jpg',
+      image: vitrineGastroImg,
       badgeText: 'Foco em Gastronomia & Varejo',
     },
     {
@@ -95,7 +110,7 @@ export const COMPANY_DATA = {
         'Ficha padronizada pronta para o prontuário',
         'Redução drástica no índice de faltas e remarcações',
       ],
-      image: '/src/assets/images/clinica_triagem_1792197322824.jpg',
+      image: clinicaTriagemImg,
       badgeText: 'Foco em Saúde & Consultórios',
     },
     {
@@ -117,7 +132,7 @@ export const COMPANY_DATA = {
         'Material acrílico de alta durabilidade e acabamento premium',
         'Atualização remota dos links sem precisar trocar a peça física',
       ],
-      image: '/src/assets/images/nfc_smart_stand_1792197323018.jpg',
+      image: nfcSmartImg,
       badgeText: 'Presença Física Inovadora',
     },
     {
@@ -139,7 +154,7 @@ export const COMPANY_DATA = {
         'Otimização SEO local para buscas no Google',
         'Integração direta com WhatsApp e e-mail comercial',
       ],
-      image: '/src/assets/images/hero_tapzoom_tech_1792197322398.jpg',
+      image: heroTechImg,
       badgeText: 'Foco em Autoridade & B2B',
     },
   ] as Solution[],

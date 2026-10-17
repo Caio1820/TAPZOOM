@@ -10,6 +10,7 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ onOpenContact, onOpenBioSite, currentView }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [logoSrc, setLogoSrc] = useState<string>(COMPANY_DATA.logoUrl);
   const [logoErr, setLogoErr] = useState(false);
 
   return (
@@ -23,11 +24,19 @@ export const Header: React.FC<HeaderProps> = ({ onOpenContact, onOpenBioSite, cu
           <div className="w-8 h-8 rounded-full overflow-hidden border border-purple-500 bg-white flex items-center justify-center p-0.5 shrink-0 transition-transform duration-200 group-hover:scale-110">
             {!logoErr ? (
               <img
-                src={COMPANY_DATA.logoUrl}
+                src={logoSrc}
                 alt="Logo Tapzoom"
                 className="w-full h-full object-cover rounded-full"
                 referrerPolicy="no-referrer"
-                onError={() => setLogoErr(true)}
+                onError={() => {
+                  if (logoSrc !== '/images/tapzoom_logo.jpg') {
+                    setLogoSrc('/images/tapzoom_logo.jpg');
+                  } else if (logoSrc !== COMPANY_DATA.fallbackLogoUrl) {
+                    setLogoSrc(COMPANY_DATA.fallbackLogoUrl);
+                  } else {
+                    setLogoErr(true);
+                  }
+                }}
               />
             ) : (
               <span className="w-2.5 h-2.5 rounded-full bg-purple-500 inline-block" />

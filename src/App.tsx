@@ -126,6 +126,14 @@ export default function App() {
                     alt="Logo Tapzoom"
                     className="w-full h-full object-cover rounded-full"
                     referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      if (target.src !== '/images/tapzoom_logo.jpg') {
+                        target.src = '/images/tapzoom_logo.jpg';
+                      } else if (target.src !== COMPANY_DATA.fallbackLogoUrl) {
+                        target.src = COMPANY_DATA.fallbackLogoUrl;
+                      }
+                    }}
                   />
                 </div>
                 <div>

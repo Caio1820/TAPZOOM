@@ -20,7 +20,7 @@ import {
   Star,
   RefreshCw,
 } from 'lucide-react';
-import { COMPANY_DATA } from '../data/company.ts';
+import { COMPANY_DATA, ASSETS } from '../data/company.ts';
 
 interface MenuItem {
   id: string;
@@ -634,10 +634,16 @@ export const LiveInteractiveShowcase: React.FC = () => {
             <div className="lg:col-span-6 bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden shadow-xl">
               <div className="relative">
                 <img
-                  src="/src/assets/images/nfc_smart_stand_1792197323018.jpg"
+                  src={ASSETS.nfc}
                   alt="Display Acrílico Inteligente NFC e QR Code Tapzoom"
                   className="w-full h-80 object-cover"
                   referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    const target = e.currentTarget;
+                    if (target.src !== '/images/nfc_smart_stand_1792197323018.jpg') {
+                      target.src = '/images/nfc_smart_stand_1792197323018.jpg';
+                    }
+                  }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-transparent pointer-events-none" />
                 <div className="absolute top-4 left-4 bg-neutral-950/80 backdrop-blur-md border border-neutral-800 px-3 py-1 rounded-lg text-xs font-semibold text-purple-400">

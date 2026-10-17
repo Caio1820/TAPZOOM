@@ -9,6 +9,7 @@ interface BioSiteViewProps {
 
 export const BioSiteView: React.FC<BioSiteViewProps> = ({ onGoToFullSite, onGoToSolutions }) => {
   const [copiedLink, setCopiedLink] = useState(false);
+  const [logoSrc, setLogoSrc] = useState<string>(COMPANY_DATA.logoUrl);
   const [imgError, setImgError] = useState(false);
 
   const handleShare = () => {
@@ -70,11 +71,19 @@ export const BioSiteView: React.FC<BioSiteViewProps> = ({ onGoToFullSite, onGoTo
         <div className="w-[110px] h-[110px] mx-auto mb-4 rounded-full overflow-hidden border-[3px] border-purple-800 shadow-md shadow-purple-900/15 bg-white flex items-center justify-center p-0.5 animate-fade-in-down">
           {!imgError ? (
             <img
-              src={COMPANY_DATA.logoUrl}
+              src={logoSrc}
               alt="Logo Oficial Tapzoom"
               className="w-full h-full object-cover rounded-full"
               referrerPolicy="no-referrer"
-              onError={() => setImgError(true)}
+              onError={() => {
+                if (logoSrc !== '/images/tapzoom_logo.jpg') {
+                  setLogoSrc('/images/tapzoom_logo.jpg');
+                } else if (logoSrc !== COMPANY_DATA.fallbackLogoUrl) {
+                  setLogoSrc(COMPANY_DATA.fallbackLogoUrl);
+                } else {
+                  setImgError(true);
+                }
+              }}
             />
           ) : (
             <div className="w-full h-full rounded-full bg-gradient-to-tr from-purple-800 to-purple-600 flex items-center justify-center text-white font-extrabold text-2xl tracking-tighter">

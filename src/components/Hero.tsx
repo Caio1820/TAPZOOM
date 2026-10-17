@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowRight, Play, CheckCircle2, ShieldCheck, Zap } from 'lucide-react';
-import { COMPANY_DATA } from '../data/company.ts';
+import { COMPANY_DATA, ASSETS } from '../data/company.ts';
 
 interface HeroProps {
   onOpenContact: () => void;
@@ -79,11 +79,17 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact, onExploreDemos, onDia
           <div className="lg:col-span-5 animate-fade-in-scale animate-delay-200">
             <div className="relative rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-900 shadow-2xl">
               <img
-                src="/src/assets/images/hero_tapzoom_tech_1792197322398.jpg"
+                src={ASSETS.hero}
                 alt="Central de Soluções Digitais e Fluxo de Atendimento WhatsApp da Tapzoom"
                 className="w-full h-80 sm:h-96 object-cover object-center"
                 referrerPolicy="no-referrer"
                 loading="eager"
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  if (target.src !== '/images/hero_tapzoom_tech_1792197322398.jpg') {
+                    target.src = '/images/hero_tapzoom_tech_1792197322398.jpg';
+                  }
+                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/90 via-neutral-950/20 to-transparent pointer-events-none" />
 
