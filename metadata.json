@@ -1,0 +1,6 @@
+{
+  "name": "Tapzoom | Conecte, Facilite e Cresça",
+  "description": "Vitrines digitais interativas, sistemas de pré-agendamento e triagem clínica, e tecnologia NFC integrados direto ao WhatsApp para negócios locais.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
